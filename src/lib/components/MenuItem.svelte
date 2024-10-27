@@ -1,9 +1,9 @@
 <script lang="ts">
-  import { cartStore } from '../stores/cartStore'; // Подключаем стор корзины
-  export let item; // Получаем данные об элементе меню
+  import { cartStore } from '../stores/cartStore'; 
+  export let item; 
   
   const addToCart = () => {
-    cartStore.add(item); // Вызываем метод add для добавления товара в корзину
+    cartStore.add(item); 
   };
 </script>
 

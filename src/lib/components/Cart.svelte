@@ -2,7 +2,7 @@
   import { cartStore } from '../stores/cartStore';
   import { get } from 'svelte/store';
 
-  const cartItems = get(cartStore); // Получаем состояние корзины
+  const cartItems = get(cartStore); 
   const getTotal = () => {
     let total = 0;
     $cartStore.forEach(item => {
@@ -15,8 +15,8 @@
       
 
           const orderData = {
-          items: cartItems, // Массив товаров [{ name: 'Coffee', quantity: 2 }, ...]
-          total: getTotal(), // Общая стоимость
+          items: cartItems, 
+          total: getTotal(), 
           chatId: ''
       };
       try {
@@ -27,7 +27,7 @@
         });
 
         if (response.ok) {
-            // Очищаем корзину и показываем сообщение об успехе
+            
             cartStore.checkout();
             alert('Your order has been successfully completed');
         } else {

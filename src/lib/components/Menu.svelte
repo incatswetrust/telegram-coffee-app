@@ -13,7 +13,7 @@
       { name: 'Chocolate cake', price: 200, categori: "desserts", image:"/img/1000_F_245456223_CrK1J9ePGfc1UW2QncGmFfycpI3vFnxI.jpg" },
       { name: 'Ice Latte', price: 150, categori: "cold", image:"" },
       { name: 'Lemonade', price: 130, categori: "cold", image:"" },
-      // Добавьте остальные
+     
     ];
   
     
