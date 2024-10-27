@@ -11,9 +11,33 @@
     return total;
   };
 
-  const confirmOrder = () => {
-      cartStore.checkout(); // функция checkout очищает корзину
-      alert('Your order has been successfully completed');
+  const confirmOrder = async () => {
+      
+
+          const orderData = {
+          items: cartItems, // Массив товаров [{ name: 'Coffee', quantity: 2 }, ...]
+          total: getTotal(), // Общая стоимость
+          chatId: ''
+      };
+      try {
+        const response = await fetch('/api/sendOrderToBot', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(orderData)
+        });
+
+        if (response.ok) {
+            // Очищаем корзину и показываем сообщение об успехе
+            cartStore.checkout();
+            alert('Your order has been successfully completed');
+        } else {
+            alert('Failed to send order. Please try again.');
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        alert('An error occurred while sending the order.');
+    }
+      
     };
 
 
